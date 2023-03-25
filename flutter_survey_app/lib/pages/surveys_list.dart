@@ -1,0 +1,114 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_survey_app/pages/survey_detail.dart';
+
+class Survey {
+  final int id;
+  final String name;
+  final String desc;
+
+  Survey(this.id, this.name, this.desc);
+}
+
+final List<Survey> surveys = [
+  Survey(
+      0,
+      "Голосование за обнуление ",
+      "Я их всех обнулил. Я обнулил каждого из них. Не осталось ничего обнуленного - я их всех обнулил, абсолютно"
+  ),
+  Survey(
+      1,
+      "Голосование за съедение губернатора Тульской области",
+      "Мужик сказал - мужик не сделал. Граждане недовольствуют, требуя на стол уже не отсутствующих у нас хлеб, а губернатора Артема Вкусных!"
+  ),
+  Survey(
+      2,
+      "Опрос: кто глупее?",
+      "Проверим ваши неумственные способности, рассортировав их по степени глупости, легкомыслия и бреда!"
+  ),
+  Survey(
+      3,
+      "Что ты здесь забыл",
+      "Спасения забывшим..."
+  ),
+  Survey(
+      4,
+      "Я не опрашивал людей уже 50000 лет!",
+      "Тяжелая судьба оренбуржца потрясла всю страну! "
+  ),
+];
+
+
+// SurveyListPage не будет иметь состояния,
+// т.к. этот пример создан только для демонстрации
+// навигации в действии
+class SurveyListPage extends StatelessWidget {
+  
+  // build как мы уже отметили, строит
+  // иерархию наших любимых виджетов
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Survey List Page")),
+      // зададим небольшие отступы для списка
+      body: Padding(
+        // объект EdgeInsets хранит четыре важные double переменные:
+        // left, top, right, bottom - отступ слева, сверху, справа и снизу
+        // EdgeInsets.all(10) - задает одинаковый отступ со всех сторон
+        // EdgeInsets.only(left: 10, right: 15) - задает отступ для
+        // определенной стороны или сторон
+        // EdgeInsets.symmetric - позволяет указать одинаковые
+        // отступы по горизонтали (left и right) и по вертикали (top и bottom)
+        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+        // создаем наш список
+          child: ListView(
+            // map принимает другую функцию, которая
+            // будет выполняться над каждым элементом
+            // списка и возвращать новый элемент (виджет Material).
+            // Результатом map является новый список
+            // с новыми элементами, в данном случае
+            // это Material виджеты
+            children: surveys.map<Widget>((survey) {
+              // Material используется для того,
+              // чтобы указать цвет элементу списка
+              // и применить ripple эффект при нажатии на него
+              return Material(
+                color: Colors.pinkAccent,
+                // InkWell позволяет отслеживать
+                // различные события, например: нажатие
+                child: InkWell(
+                  // splashColor - цвет ripple эффекта
+                  splashColor: Colors.pink,
+                  // нажатие на элемент списка
+                  onTap: () {
+                    // Здесь мы используем сокращенную форму:
+                    // Navigator.of(context).push(route)
+                    // PonyDetailPage принимает pony id,
+                    // который мы и передали
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => SurveyDetailPage(survey.id)
+                    ));
+                  },
+                  // далее указываем в качестве
+                  // элемента Container с вложенным Text
+                  // Container позволяет указать внутренние (padding)
+                  // и внешние отступы (margin),
+                  // а также тень, закругление углов,
+                  // цвет и размеры вложенного виджета
+                  child: Container(
+                      padding: EdgeInsets.all(15),
+                      child: Text(
+                          survey.name,
+                          style: Theme.of(context).textTheme.headline4
+                      )
+                  ),
+                ),
+              );
+              // map возвращает Iterable объект, который необходимо
+              // преобразовать в список с помощью toList() функции
+            }).toList(),
+          )
+      ),
+    );
+  }
+
+}
