@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_survey_app/pages/surveys_list.dart';
+import 'package:flutter_survey_app/services/landing.dart';
 import 'pages/home.dart';
 
 import 'package:flutter/material.dart';
@@ -34,6 +35,10 @@ class MyApp extends StatelessWidget {
       ),
       // указываем исходную страницу, которую мы создадим позже
       home: SurveyListPage(),
+      routes: {
+        '/': (context) => const LandingPage(),
+        '/home': (context) => const HomePage()
+      },
     );
   }
 }
