@@ -3,8 +3,6 @@ import 'package:flutter_survey_app/pages/surveys_list.dart';
 import 'package:flutter_survey_app/services/landing.dart';
 import 'pages/home.dart';
 
-import 'package:flutter/material.dart';
-
 // main() является главной функцией с которой начинается 
 // выполнение приложения
 // возвращает виджет приложения
