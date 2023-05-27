@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\flutterPr\SurveyApp\SurveyApp\build\windows\CMakeFiles\a56f2f4b0c06a6d96ce0fb0a7c5e31d5\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{B0168008-6A93-30FB-9FC9-48885B76A64A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
