@@ -28,7 +28,9 @@ class PastSurveysPage extends StatelessWidget {
       drawer: const MenuDrawer(),
       body: Center(
         child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.9,
             width: MediaQuery.of(context).size.width * 0.8,
             child: ListView.builder(
               scrollDirection: Axis.vertical,
@@ -40,7 +42,7 @@ class PastSurveysPage extends StatelessWidget {
                     shadowColor: Colors.blue,
                     elevation: 2.0,
                     margin:
-                        const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                        const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
                     child: Center(
                       child: ElevatedButton(
                         onPressed: () {
@@ -54,28 +56,34 @@ class PastSurveysPage extends StatelessWidget {
                         
                         child: Column(
                           children: [
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: MediaQuery.of(context).size.width * 0.2,
+                            SizedBox(
+                                  width: MediaQuery.of(context).size.width * 0.6,
                                   child: Text(
+                                    textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                      color: Colors.white
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 20
                                     ),
                                     tempHomeList[i].title!,
                                   ),
                                 ),
+
                                 SizedBox(
-                                  width: MediaQuery.of(context).size.width * 0.4,
+                                  height: MediaQuery.of(context).size.height * 0.02,
+                                ),
+
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width * 0.8,
                                   child: Text(
+                                    textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                      color: Colors.white
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w100,
                                     ),
                                     tempHomeList[i].description!,
                                   ),
                                 ),
-                              ],
-                            )
                           ],
                         ),
                       ),

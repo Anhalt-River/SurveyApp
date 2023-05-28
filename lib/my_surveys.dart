@@ -37,6 +37,7 @@ class MySurveysPage extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.9,
             width: MediaQuery.of(context).size.width * 0.8,
             child: ListView.builder(
               scrollDirection: Axis.vertical,
@@ -48,7 +49,7 @@ class MySurveysPage extends StatelessWidget {
                     shadowColor: Colors.blue,
                     elevation: 2.0,
                     margin:
-                        const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                        const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
                     child: Center(
                       child: ElevatedButton(
                         onPressed: () {
@@ -62,28 +63,34 @@ class MySurveysPage extends StatelessWidget {
                         
                         child: Column(
                           children: [
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: MediaQuery.of(context).size.width * 0.2,
+                            SizedBox(
+                                  width: MediaQuery.of(context).size.width * 0.5,
                                   child: Text(
+                                    textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                      color: Colors.white
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 20
                                     ),
                                     tempHomeList[i].title!,
                                   ),
                                 ),
+
                                 SizedBox(
-                                  width: MediaQuery.of(context).size.width * 0.4,
+                                  height: MediaQuery.of(context).size.height * 0.02,
+                                ),
+
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width * 0.7,
                                   child: Text(
+                                    textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                      color: Colors.white
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w100
                                     ),
                                     tempHomeList[i].description!,
                                   ),
                                 ),
-                              ],
-                            )
                           ],
                         ),
                       ),

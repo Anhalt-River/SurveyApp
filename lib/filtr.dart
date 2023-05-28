@@ -87,7 +87,7 @@ class _FiltrState extends State<FiltrPage> {
                         DropdownMenuItem(value: "3", child: Text("Областная")),
                         DropdownMenuItem(value: "2", child: Text("Городская")),
                         DropdownMenuItem(value: "1", child: Text("Районная")),
-                        DropdownMenuItem(value: "0", child: Text("Отсутствует")),
+                        DropdownMenuItem(value: "0", child: Text("(Отсутствует)")),
                   ],
                   onChanged: dropSeverityCallback,
                   value: globalFiltr.severityFiltration,
@@ -100,8 +100,6 @@ class _FiltrState extends State<FiltrPage> {
                     child: ElevatedButton(
                       style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.indigo)),
                       onPressed: () {
-                        // globalFiltr.cityFiltration = _dropCityValue;
-                        // globalFiltr.severityFiltration = _dropSeverityValue;
                         Navigator.popAndPushNamed(context, '/home');
                       }, 
                       child: const Text("Задать фильтры")),

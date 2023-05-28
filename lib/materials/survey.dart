@@ -28,6 +28,16 @@ List<Survey> surveys = <Survey>[
   Survey(
       offeredUserEmail: "unnamed",
       id: "1",
+      title: 'Вопрос о состоянии жилья №10',
+      city: 'Kazan',
+      severity: "1",
+      isVoited: 0,
+      description: 'normal survey',
+      variants: ['good', 'normal', 'bad'],
+      voices: [2, 3, 1]),
+  Survey(
+      offeredUserEmail: "unnamed",
+      id: "2",
       title: 'Вопрос о состоянии жилья №2',
       city: 'Kazan',
       severity: "2",
@@ -37,7 +47,7 @@ List<Survey> surveys = <Survey>[
       voices: [2, 3, 1]),
   Survey(
       offeredUserEmail: "unnamed",
-      id: "2",
+      id: "3",
       isVoited: 0,
       title: 'Вопрос о состоянии жилья №1',
       city: 'Saint Petersburg',
@@ -48,7 +58,7 @@ List<Survey> surveys = <Survey>[
   Survey(
       offeredUserEmail: "unnamed",
       isVoited: 0,
-      id: "3",
+      id: "4",
       title: 'Снос памятника Колчаку',
       city: 'Moscow',
       severity: "1",
@@ -58,7 +68,7 @@ List<Survey> surveys = <Survey>[
   Survey(
       offeredUserEmail: "unnamed",
       isVoited: 0,
-      id: "4",
+      id: "5",
       title: 'Продажа министра образования китайцам',
       severity: "4",
       description: 'Предлагаю продать нашего дорогого министра китайцам!',
@@ -67,9 +77,9 @@ List<Survey> surveys = <Survey>[
   Survey(
       offeredUserEmail: "unnamed",
       isVoited: 0,
-      id: "5",
+      id: "6",
       title: 'Покупка мерседес для министра образования',
-      severity: "4",
+      severity: "3",
       description:
           'Предлагаю закупить мерседес на нужды нашего дорогого министра!',
       variants: ['good', 'normal', 'bad'],
@@ -77,7 +87,7 @@ List<Survey> surveys = <Survey>[
   Survey(
       offeredUserEmail: "unnamed",
       isVoited: 0,
-      id: "6",
+      id: "7",
       title: 'Снижение налогов',
       severity: "5",
       description: 'Предлагаю снизить налоги! на богатых)',

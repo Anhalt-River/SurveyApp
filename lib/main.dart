@@ -46,7 +46,7 @@ class SurveyApp extends StatelessWidget {
             appBarTheme: const AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle(systemNavigationBarColor: Colors.indigo)),
             // drawerTheme: const DrawerThemeData(backgroundColor: Colors.red),
                 //primarySwatch: Colors.white,
-                ),
+                ),   
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
         routes: {

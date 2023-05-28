@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_survey_app/materials/filtr.dart';
 import 'package:flutter_survey_app/materials/taked_survey.dart';
 import 'package:flutter_survey_app/services/auth_user.dart';
 import 'package:provider/provider.dart';
@@ -112,10 +113,17 @@ class SurveyDetailsState extends State<SurveyDetails> {
                     height: MediaQuery.of(context).size.height * 0.02,
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    width: MediaQuery.of(context).size.width * 0.7,
                     child: Row(
                       children: [
                         const Text('Важность: '),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          child: Text(severityList[int.parse(takedSurvey.severity)],
+                          softWrap: true,
+                            style: const TextStyle(fontWeight: FontWeight.bold),),
+                            ),
+                        
                         Text(takedSurvey.severity,
                         style: const TextStyle(fontWeight: FontWeight.bold),)
                       ],
@@ -123,8 +131,9 @@ class SurveyDetailsState extends State<SurveyDetails> {
                   ),
                   
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.02,
+                    height: MediaQuery.of(context).size.height * 0.05,
                   ),
+                  
                   const Text('Варианты'),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.01,

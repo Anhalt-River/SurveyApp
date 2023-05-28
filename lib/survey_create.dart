@@ -249,7 +249,7 @@ class _SurveyCreatePageState extends State<SurveyCreatePage> {
                         DropdownMenuItem(value: "Kazan", child: Text("Казань")),
                         DropdownMenuItem(value: "Tver", child: Text("Тверь")),
                         DropdownMenuItem(value: "Yaroslavl", child: Text("Ярославль")),
-                        DropdownMenuItem(value: " ", child: Text(" ")),
+                        DropdownMenuItem(value: "", child: Text("Не обозначен")),
                       ],
                       onChanged: dropCityCall,
                       value: _dropCityValue,

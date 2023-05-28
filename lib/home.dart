@@ -14,24 +14,68 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
   List<Survey> tempHomeList = <Survey>[];
     void researchList(){
+
+      // List<Survey> deleteList = <Survey>[];
+      // for(int i = 0; i < surveys.length; i++){
+      //   tempHomeList.add(surveys[i]);
+      // }
+
       for(int i = 0; i < surveys.length; i++){
+        // if(tempHomeList[i].isVoited == 0){
+        //   if(globalFiltr.cityFiltration != ""){
+        //     if(globalFiltr.cityFiltration != tempHomeList[i].city){
+        //       deleteList.add(tempHomeList[i]);
+        //     }
+        //   }
+
+        //   if(globalFiltr.severityFiltration != "0"){
+        //     if(globalFiltr.severityFiltration != tempHomeList[i].severity){
+        //       deleteList.add(tempHomeList[i]);
+        //     }
+        //   }
+        // }
+        // else{
+        //   deleteList.add(tempHomeList[i]);
+        // }
+
+        // for(int i = 0; i < deleteList.length; i++){
+        //   for(int j = 0; j < tempHomeList.length; j++){
+        //     if(deleteList[i].id == tempHomeList[j].id){
+        //       tempHomeList.remove(tempHomeList[j]);
+        //     }
+        //   }
+        // }
+
         if(surveys[i].isVoited == 0){
-          if(globalFiltr.cityFiltration != "" || globalFiltr.severityFiltration != "0"){
+
+          if(globalFiltr.cityFiltration == "" && globalFiltr.severityFiltration == "0"){
+            tempHomeList.add(surveys[i]);
+          }
+          else if(globalFiltr.cityFiltration != "" && globalFiltr.severityFiltration != "0"){
             if(globalFiltr.cityFiltration == surveys[i].city && globalFiltr.severityFiltration == surveys[i].severity){
               tempHomeList.add(surveys[i]);
             }
-            else if(globalFiltr.cityFiltration == surveys[i].city){
-              tempHomeList.add(surveys[i]);
-            }
-            else if(globalFiltr.severityFiltration == surveys[i].severity){
-              tempHomeList.add(surveys[i]);
-            }
           }
-          else {
-            tempHomeList.add(surveys[i]);
+          else{ 
+            if(globalFiltr.cityFiltration != "" &&  globalFiltr.severityFiltration == "0"){
+              if(globalFiltr.cityFiltration == surveys[i].city){
+                tempHomeList.add(surveys[i]);
+              }
+            }
+            else if(globalFiltr.severityFiltration != "0" &&  globalFiltr.cityFiltration == ""){
+              if(globalFiltr.severityFiltration == surveys[i].severity){
+                tempHomeList.add(surveys[i]);
+              }
+            }
+
           }
+
+
+          
         }
+        
       }
+
     }
 
     researchList();
@@ -52,7 +96,9 @@ class HomePage extends StatelessWidget {
       drawer: const MenuDrawer(),
       body: Center(
         child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.9,
             width: MediaQuery.of(context).size.width * 0.8,
             child: ListView.builder(
               scrollDirection: Axis.vertical,
