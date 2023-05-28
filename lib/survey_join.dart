@@ -52,18 +52,24 @@ class SurveyDetailsState extends State<SurveyDetails> {
         body: SingleChildScrollView(
           child: Center(
             child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.7,
+              width: MediaQuery.of(context).size.width * 0.8,
               child: Column(
                 children: [
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    child: Row(
+                    child: Column(
                       children: [
-                        const Text('Наименование:'),
-                        Text(takedSurvey.title != null ? takedSurvey.title! : "Не описано")
+                        const Text('Наименование: '),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.005,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          child: Text(takedSurvey.title != null ? takedSurvey.title! : "Не описано",
+                            maxLines: 3, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.bold),),
+                        )
                       ],
                     ),
                   ),
@@ -71,11 +77,33 @@ class SurveyDetailsState extends State<SurveyDetails> {
                     height: MediaQuery.of(context).size.height * 0.02,
                   ),
                   SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    child: Column(
+                      children: [
+                        const Text('Описание: '),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.005,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.6,
+                          child: Text(takedSurvey.description != null ? takedSurvey.description! : "Не описано",
+                          softWrap: true, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.bold),),
+                        )
+                      ],
+                    ),
+                  ),
+                  
+
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Row(
                       children: [
-                        const Text('Город:'),
-                        Text(takedSurvey.city != null ? takedSurvey.city! : "Не обозначен")
+                        const Text('Город: '),
+                        Text(takedSurvey.city != null ? takedSurvey.city! : "Не обозначен",
+                        style: const TextStyle(fontWeight: FontWeight.bold),)
                       ],
                     ),
                   ),
@@ -83,29 +111,17 @@ class SurveyDetailsState extends State<SurveyDetails> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.02,
                   ),
-                  Row(
-                    children: [
-                      const Text('Описание:'),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.1,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.4,
-                        child: Text(takedSurvey.description != null ? takedSurvey.description! : "Не описано",
-                        softWrap: true,),
-                      )
-                      // Text(widget.takedSurvey!.description!)
-                    ],
-                  ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.02,
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: Row(
+                      children: [
+                        const Text('Важность: '),
+                        Text(takedSurvey.severity,
+                        style: const TextStyle(fontWeight: FontWeight.bold),)
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      const Text('Важность:'),
-                      Text(takedSurvey.severity)
-                    ],
-                  ),
+                  
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.02,
                   ),

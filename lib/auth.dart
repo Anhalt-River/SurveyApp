@@ -39,19 +39,19 @@ class _AuthPageState extends State<AuthPage> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            // InteractiveViewer(
-            //   panEnabled: false,
-            //   scaleEnabled: false,
-            //   boundaryMargin: const EdgeInsets.all(0),
-            //   minScale: 0.5,
-            //   maxScale: 1,
-            //   child: Image.asset(
-            //     'images/fist.png',
-            //     width: 100,
-            //     height: 100,
-            //     fit: BoxFit.cover
-            //   ),
-            // ),
+            InteractiveViewer(
+              panEnabled: false,
+              scaleEnabled: false,
+              boundaryMargin: const EdgeInsets.all(0),
+              minScale: 0.5,
+              maxScale: 1,
+              child: Image.asset(
+                'images/fist.png',
+                width: 100,
+                height: 100,
+                fit: BoxFit.cover
+              ),
+            ),
             const Text('MySurvey',
                 style: TextStyle(
                   fontSize: 20,

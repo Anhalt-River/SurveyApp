@@ -30,7 +30,7 @@ class MySurveysPage extends StatelessWidget {
       ),
       backgroundColor: primaryColor,
       appBar: AppBar(
-        title: const Text("Ваши опросы", style: TextStyle(color: Colors.white, fontSize: 30),),
+        title: const Text("Ваши опросы", style: TextStyle(color: Colors.white, fontSize: 25),),
         backgroundColor: Colors.indigo,
       ),
       drawer: const MenuDrawer(),

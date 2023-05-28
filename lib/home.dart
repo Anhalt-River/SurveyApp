@@ -20,6 +20,12 @@ class HomePage extends StatelessWidget {
             if(globalFiltr.cityFiltration == surveys[i].city && globalFiltr.severityFiltration == surveys[i].severity){
               tempHomeList.add(surveys[i]);
             }
+            else if(globalFiltr.cityFiltration == surveys[i].city){
+              tempHomeList.add(surveys[i]);
+            }
+            else if(globalFiltr.severityFiltration == surveys[i].severity){
+              tempHomeList.add(surveys[i]);
+            }
           }
           else {
             tempHomeList.add(surveys[i]);
@@ -33,7 +39,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
-        title: const Text("Что нового?", style: TextStyle(color: Colors.white, fontSize: 20),),
+        title: const Text("Что нового?", style: TextStyle(color: Colors.white, fontSize: 25),),
         backgroundColor: Colors.indigo,
       ),
       floatingActionButton: FloatingActionButton(
@@ -71,30 +77,37 @@ class HomePage extends StatelessWidget {
                         },
                         
                         child: Column(
-                          children: [
-                            Row(
                               children: [
                                 SizedBox(
-                                  width: MediaQuery.of(context).size.width * 0.2,
+                                  width: MediaQuery.of(context).size.width * 0.5,
                                   child: Text(
                                     style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w400,
                                       color: Colors.white
                                     ),
                                     tempHomeList[i].title!,
+                                    textAlign: TextAlign.center,
                                   ),
                                 ),
+
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height * 0.02,
+                                ),
+
                                 SizedBox(
                                   width: MediaQuery.of(context).size.width * 0.4,
                                   child: Text(
+                                    
                                     style: const TextStyle(
+                                      fontWeight: FontWeight.w100,
                                       color: Colors.white
                                     ),
                                     tempHomeList[i].description!,
+                                    textAlign: TextAlign.center,
                                   ),
                                 ),
                               ],
-                            )
-                          ],
                         ),
                       ),
                     ),

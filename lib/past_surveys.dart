@@ -22,7 +22,7 @@ class PastSurveysPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
-        title: const Text("Прошедшие опросы", style: TextStyle(color: Colors.white, fontSize: 30),),
+        title: const Text("Прошедшие опросы", style: TextStyle(color: Colors.white, fontSize: 25),),
         backgroundColor: Colors.indigo,
       ),
       drawer: const MenuDrawer(),

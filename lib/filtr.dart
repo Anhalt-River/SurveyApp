@@ -10,37 +10,40 @@ class FiltrPage extends StatefulWidget {
 
 class _FiltrState extends State<FiltrPage> {
 
-  String _dropCityValue = "";
+  // String _dropCityValue = "";
 
   void dropCityCallback(String? selectedValue){
     if(selectedValue is String){
       setState(() {
-        _dropCityValue = selectedValue;
+        globalFiltr.cityFiltration = selectedValue;
       });
     }
   }
 
-  String _dropSeverityValue = "0";
+  // String _dropSeverityValue = "0";
 
   void dropSeverityCallback(String? selectedValue){
     if(selectedValue is String){
       setState(() {
-        _dropSeverityValue = selectedValue;
+        globalFiltr.severityFiltration = selectedValue;
       });
     }
   }
 
-  void fillFilters(){
-    dropSeverityCallback(globalFiltr.severityFiltration);
-    dropSeverityCallback(globalFiltr.cityFiltration);
-  }
+  // void fillFilters(){
+  //   setState(() {
+  //     _dropCityValue = globalFiltr.cityFiltration;
+  //     _dropSeverityValue = globalFiltr.severityFiltration;
+
+  //     dropCityCallback(_dropCityValue);
+  //     dropSeverityCallback(_dropSeverityValue);
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     //fillFilters();
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.popAndPushNamed(context, '/home');
@@ -67,7 +70,7 @@ class _FiltrState extends State<FiltrPage> {
                     DropdownMenuItem(value: "", child: Text("(Отсутствует)")),
                   ],
                   onChanged: dropCityCallback,
-                  value: _dropCityValue,
+                  value: globalFiltr.cityFiltration,
                 ),
               ),
 
@@ -79,14 +82,15 @@ class _FiltrState extends State<FiltrPage> {
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: DropdownButton(
                   items: const [
-                        DropdownMenuItem(value: "4", child: Text("Мировая")),
-                        DropdownMenuItem(value: "3", child: Text("Государственная")),
-                        DropdownMenuItem(value: "2", child: Text("Областная")),
-                        DropdownMenuItem(value: "1", child: Text("Городская")),
-                        DropdownMenuItem(value: "0", child: Text("Районная")),
+                        DropdownMenuItem(value: "5", child: Text("Мировая")),
+                        DropdownMenuItem(value: "4", child: Text("Государственная")),
+                        DropdownMenuItem(value: "3", child: Text("Областная")),
+                        DropdownMenuItem(value: "2", child: Text("Городская")),
+                        DropdownMenuItem(value: "1", child: Text("Районная")),
+                        DropdownMenuItem(value: "0", child: Text("Отсутствует")),
                   ],
                   onChanged: dropSeverityCallback,
-                  value: _dropSeverityValue,
+                  value: globalFiltr.severityFiltration,
                 ),
               ),
 
@@ -94,9 +98,10 @@ class _FiltrState extends State<FiltrPage> {
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: Center(
                     child: ElevatedButton(
+                      style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.indigo)),
                       onPressed: () {
-                        globalFiltr.cityFiltration = _dropCityValue;
-                        globalFiltr.severityFiltration = _dropSeverityValue;
+                        // globalFiltr.cityFiltration = _dropCityValue;
+                        // globalFiltr.severityFiltration = _dropSeverityValue;
                         Navigator.popAndPushNamed(context, '/home');
                       }, 
                       child: const Text("Задать фильтры")),
@@ -105,7 +110,6 @@ class _FiltrState extends State<FiltrPage> {
             ],
           )
         ),
-      ),
-    );
+      );
   }
 }

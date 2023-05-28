@@ -62,14 +62,14 @@ class _SurveyCreatePageState extends State<SurveyCreatePage> {
                           label: const Text("Название"),
                           labelStyle: const TextStyle(color: Colors.blueGrey),
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(75),
+                            borderRadius: BorderRadius.circular(25),
                             borderSide: const BorderSide(color: Colors.purple),
                           ),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
                               borderSide: const BorderSide(color: Colors.deepPurple)),
                           prefixIcon: const Icon(
-                            Icons.email,
+                            Icons.turned_in_not_sharp,
                             color: Colors.indigo,
                           )
                       ),
@@ -81,32 +81,35 @@ class _SurveyCreatePageState extends State<SurveyCreatePage> {
                 ),
 
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.5,
+                  width: MediaQuery.of(context).size.width * 0.7,
                   child: TextField(
-                      controller: _descriptionController,
-                      cursorColor: Colors.black,
-                      style: const TextStyle(color: Colors.black),
-                      decoration: InputDecoration(
-                        floatingLabelBehavior: FloatingLabelBehavior.always,
-                          label: const Text("Описание"),
-                          labelStyle: const TextStyle(color: Colors.blueGrey),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(75),
-                            borderSide: const BorderSide(color: Colors.purple),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: const BorderSide(color: Colors.deepPurple)),
-                          prefixIcon: const Icon(
-                            Icons.email,
-                            color: Colors.indigo,
-                          )
+                    minLines: 1,
+                    maxLines: 5,
+                    controller: _descriptionController,
+                    cursorColor: Colors.black,
+                    style: const TextStyle(color: Colors.black,
+                    ),
+                    decoration: InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                        label: const Text("Описание"),
+                        labelStyle: const TextStyle(color: Colors.blueGrey),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25),
+                          borderSide: const BorderSide(color: Colors.purple),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: const BorderSide(color: Colors.deepPurple)),
+                        prefixIcon: const Icon(
+                          Icons.description,
+                          color: Colors.indigo,
+                        )
                       ),
                     ),
                 ),
 
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
+                  height: MediaQuery.of(context).size.height * 0.02,
                 ),
 
                 SizedBox(
@@ -123,7 +126,7 @@ class _SurveyCreatePageState extends State<SurveyCreatePage> {
                             label: const Text("Новый вариант"),
                             labelStyle: const TextStyle(color: Colors.blueGrey),
                             focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(75),
+                              borderRadius: BorderRadius.circular(25),
                               borderSide: const BorderSide(color: Colors.purple),
                             ),
                             enabledBorder: OutlineInputBorder(
@@ -157,7 +160,8 @@ class _SurveyCreatePageState extends State<SurveyCreatePage> {
                 ),
 
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.3,
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  height: MediaQuery.of(context).size.height * 0.2,
                   child: ListView.builder(
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
@@ -173,21 +177,26 @@ class _SurveyCreatePageState extends State<SurveyCreatePage> {
                           child: Row(
                             children: [
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.2,
+                                width: MediaQuery.of(context).size.width * 0.52,
                                 child: Text(
+                                  softWrap: true,
+                                  textAlign: TextAlign.center,
                                   style: const TextStyle(
-                                    color: Colors.white
+                                    color: Colors.white,
                                   ),
                                   variantsList[i]
                                 ),
                               ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    variantsList.remove(variantsList[i]);
-                                  });
-                                }, 
-                                child: const Icon(Icons.delete)
+                              Align(
+                                alignment: Alignment.center,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      variantsList.remove(variantsList[i]);
+                                    });
+                                  }, 
+                                  child: const Icon(Icons.delete)
+                                ),
                               )
                             ],
                           ),
@@ -205,15 +214,16 @@ class _SurveyCreatePageState extends State<SurveyCreatePage> {
                   width: MediaQuery.of(context).size.width * 0.7,
                   child: Row(
                     children: [
-                      const Text("Важность:"),
+                      const Text("Важность: "),
 
                       DropdownButton(
                       items: const [
-                        DropdownMenuItem(value: "4", child: Text("Мировая")),
-                        DropdownMenuItem(value: "3", child: Text("Государственная")),
-                        DropdownMenuItem(value: "2", child: Text("Областная")),
-                        DropdownMenuItem(value: "1", child: Text("Городская")),
-                        DropdownMenuItem(value: "0", child: Text("Районная")),
+                        DropdownMenuItem(value: "5", child: Text("Мировая")),
+                        DropdownMenuItem(value: "4", child: Text("Государственная")),
+                        DropdownMenuItem(value: "3", child: Text("Областная")),
+                        DropdownMenuItem(value: "2", child: Text("Городская")),
+                        DropdownMenuItem(value: "1", child: Text("Районная")),
+                        DropdownMenuItem(value: "0", child: Text("Отсутствует")),
                       ],
                       onChanged: dropSeverityCall,
                       value: _dropSeverityValue,
@@ -230,7 +240,7 @@ class _SurveyCreatePageState extends State<SurveyCreatePage> {
                   width: MediaQuery.of(context).size.width * 0.7,
                   child: Row(
                     children: [
-                      const Text("Город:"),
+                      const Text("Город: "),
 
                       DropdownButton(
                       items: const [
